@@ -1,0 +1,10 @@
+rr = [
+    'toco guitarra',
+    'meu estilo musical é rock, escuto bandas como metallica megadeth e keyscore',
+    'prefiro ler quadrinhos doque ler livros',
+    'ja participei de uma competição de robotica em que os robos eram feitos principalmente de lego',
+    'gosto de strogonoff de frango com arroz e batata palha'
+]
+
+for i in range(len(rr)):
+    print(rr[i])
