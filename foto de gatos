@@ -1,0 +1,30 @@
+import discord
+import requests
+
+intents = discord.Intents.default()
+intents.message_content = True
+intents.members = True
+client = discord.Client(intents=intents)
+@client.event
+async def on_ready():
+    print(f'Fizemos login como {client.user}')
+
+
+
+def get_cat_meme():
+    url = "https://api.thecatapi.com/v1/images/search"
+    response = requests.get(url)
+    data = response.json()
+    return data[0]['url']
+
+@client.event
+async def on_message(message):
+    if message.author.bot:
+        return
+
+    if message.content.startswith("$cat"):
+        cat_url = get_cat_meme()
+        await message.channel.send(cat_url)
+
+
+client.run('')
